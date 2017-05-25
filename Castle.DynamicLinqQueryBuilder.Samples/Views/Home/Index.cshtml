@@ -1,106 +1,164 @@
-﻿@using Castle.DynamicLinqQueryBuilder.Samples.Sample
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 @section scripts
 {
     <script type="text/javascript">
-    $(function() {
-        // Handler for .ready() called.
-        var tableData = [];
+        $(function() {
+            // Handler for .ready() called.
+            var tableData = [];
 
-        var filterDefinition = @Html.Raw(ViewBag.FilterDefinition);
-        var customFilters = {
-            condition: 'AND',
-            rules: []
-        };
-        var jqueryQueryBuilder = $('#jquery-query-builder');
-        var jqueryQueryBuilderDom = jqueryQueryBuilder.queryBuilder({
-            plugins: ['bt-tooltip-errors', 'filter-description'],
-            //allow_groups: 0,
-            allow_empty: true,
-            filters: filterDefinition,
-            rules: customFilters,
-            icons: {
-                add_group: 'fa fa-plus-square',
-                add_rule: 'fa fa-plus-circle',
-                remove_group: 'fa fa-minus-square',
-                remove_rule: 'fa fa-minus-circle',
-                error: 'fa fa-exclamation-triangle',
-                sortable: 'fa fa-exclamation-triangle'
-            }
-        });
-
-        var convertArraysToCommaDelimited = function(obj) {
-            if (obj != null) {
-                if (obj.hasOwnProperty("value")) {
-                    if( Object.prototype.toString.call( obj.value ) === '[object Array]' ) {
-                        obj.value = obj.value.join(", ");
-                    }
+            var filterDefinition = @Html.Raw(ViewBag.FilterDefinition);
+            var customFilters = {
+                condition: 'AND',
+                rules: []
+            };
+            var jqueryQueryBuilder = $('#jquery-query-builder');
+            var jqueryQueryBuilderDom = jqueryQueryBuilder.queryBuilder({
+                plugins: ['bt-tooltip-errors', 'filter-description'],
+                //allow_groups: 0,
+                allow_empty: true,
+                filters: filterDefinition,
+                rules: customFilters,
+                icons: {
+                    add_group: 'fa fa-plus-square',
+                    add_rule: 'fa fa-plus-circle',
+                    remove_group: 'fa fa-minus-square',
+                    remove_rule: 'fa fa-minus-circle',
+                    error: 'fa fa-exclamation-triangle',
+                    sortable: 'fa fa-exclamation-triangle'
                 }
-                if (obj.hasOwnProperty("rules") && obj.rules != null) {
-                    for (var i = 0; i < obj.rules.length; i++) {
-                        convertArraysToCommaDelimited(obj.rules[i]);
-                    }
-                }
-            }
-        }
-        var getRules = function() {
-            try {
-                var res =  jqueryQueryBuilder.queryBuilder('getRules');
-                convertArraysToCommaDelimited(res);
-                return res;
-            } catch (ex) {
-                //console.log(ex);
-                return null;
-            }
-        }
-        
-        var buildTable;
-        var filterData = function() {
-            
-            $.ajax({
-                type: 'POST',
-                url: "../Home/Index",
-                data: JSON.stringify(getRules()),
-                success: function (returnPayload) {
-                    tableData = returnPayload;
-                    buildTable();
-                    console && console.log ("request succeeded");
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console && console.log ("request failed");
-                },
-                dataType: "json",
-                contentType: "application/json",            
-                processData: false,
-                async: true
             });
-        }
 
-        $('#applyFilter').on('click', function() {
-            filterData();
-        });
-        buildTable = function() {
-            var tbody = $('#data-table tbody'),
-                props = ["FirstName", "LastName", "Birthday", "Age", "Address", "City", "State", "ZipCode"];
-            tbody.empty();
-            $.each(tableData, function(i, reservation) {
-                var tr = $('<tr>');
-                $.each(props, function(i, prop) {
-                    $('<td>').html(reservation[prop]).appendTo(tr);  
+            var convertArraysToCommaDelimited = function(obj) {
+                if (obj != null) {
+                    if (obj.hasOwnProperty("value")) {
+                        if( Object.prototype.toString.call( obj.value ) === '[object Array]' ) {
+                            obj.value = obj.value.join(", ");
+                        }
+                    }
+                    if (obj.hasOwnProperty("rules") && obj.rules != null) {
+                        for (var i = 0; i < obj.rules.length; i++) {
+                            convertArraysToCommaDelimited(obj.rules[i]);
+                        }
+                    }
+                }
+            }
+            var getRules = function() {
+                try {
+                    var res =  jqueryQueryBuilder.queryBuilder('getRules');
+                    convertArraysToCommaDelimited(res);
+                    return res;
+                } catch (ex) {
+                    //console.log(ex);
+                    return null;
+                }
+            }
+
+            var buildTable;
+            var filterData = function() {
+
+                $.ajax({
+                    type: 'POST',
+                    url: "/Home/Index",
+                    data: JSON.stringify(getRules()),
+                    success: function (returnPayload) {
+                        tableData = returnPayload;
+                        buildTable();
+                        console && console.log ("request succeeded");
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console && console.log ("request failed");
+                    },
+                    dataType: "json",
+                    contentType: "application/json",
+                    processData: false,
+                    async: true
                 });
-                tbody.append(tr);
+            }
+
+            $('#applyFilter').on('click', function() {
+                filterData();
             });
-        };
+            buildTable = function() {
+                var tbody = $('#data-table tbody'),
+                    props = ["id"
+          ,"periodeDsn"
+          ,"ownerId"
+          ,"005declarationid"
+          ,"030dsnSalarieid"
+          ,"40001ContratDateDebut"
+          ,"40002ContratStatutConventionnel"
+          ,"40003ContratStatutRC"
+          ,"40004ContratPcsEse"
+          ,"40005ContratComplementPcsEse"
+          ,"40006ContratLibelleEmploi"
+          ,"40007ContratNature"
+          ,"40008ContratDispositifPolitique"
+          ,"40009ContratNumero"
+          ,"40010ContratDateFinPrevisionnelle"
+          ,"40011ContratUniteMesure"
+          ,"40012ContratQuotiteCategorie"
+          ,"40013ContratQuotite"
+          ,"40014ContratModaliteTemps"
+          ,"40016ContratComplementBase"
+          ,"40017ContratCcn"
+          ,"40018ContratRegimeMaladie"
+          ,"40019ContratLieutravail"
+          ,"40020ContratRegimeVieillesse"
+          ,"40021ContratMotifRecours"
+          ,"40022ContratCodeCaisseCongesPayes"
+          ,"40023ContratTauxFraisProfessionnels"
+          ,"40024ContratTravailleurEtranger"
+          ,"40025ContratMotifExclusionDSN"
+          ,"40026ContratStatusEmploi"
+          ,"40027ContratCodeAffectationAC"
+          ,"40028ContratNumeroInterne"
+          ,"40029ContratTypeGestionAC"
+          ,"40030ContratDateAdhesion"
+          ,"40031ContratDateDenonciation"
+          ,"40032ContratDateConventionGestion"
+          ,"40033ContratNumeroConventionGestion"
+          ,"40035ContratCodeGestionnaireRisque"
+          ,"40036ContratCodeEmploisMultiples"
+          ,"40037ContratCodeEmployeursMultiples"
+          ,"40038ContratCodeMetier"
+          ,"40039ContratCodeRegimeRisqueAccidentTravail"
+          ,"40040ContratCodeRisqueAccidentTravail"
+          ,"40041ContratPositionnementConventionCollective"
+          ,"40042ContratCodeStatutCategorielAPECITA"
+          ,"40043ContratTauxAccidentTravail"
+          ,"40044ContratSalarieTempsPartielCotisantTempsPlein"
+          ,"40045ContratRemunerationPourboire"
+          ,"40046ContratSiretEtablissementUtilisateur"
+          ,"40047ContratNumeroCertificationSociale"
+          ,"40048ContratNumeroLabel"
+          ,"40049ContratNumeroLicenceEntrepreneurSpectacle"
+          ,"40050ContratNumeroObjetSpectacle"
+          ,"40051ContratStatutOrganisateurSpectacle"],
+              thead=$('#data-table thead');
+                thead.empty();
+                thead.append("<tr>");
+                for(var i=0;i<props.length;i++)
+                    thead.append("<th>"+props[i]+"</th>");
+                thead.append("</tr>");
+                tbody.empty();
+                $.each(tableData, function(i, reservation) {
+                    var tr = $('<tr>');
+                    $.each(props, function(i, prop) {
+                        $('<td>').html(reservation[prop]).appendTo(tr);
+                    });
+                    tbody.append(tr);
+                });
+            };
 
-        filterData();
+            filterData();
 
-    });
+        });
 
 
 
-</script>
+    </script>
 }
 
 <div class="jumbotron">
@@ -109,29 +167,18 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <h2>Build Filters</h2>
         <div id="jquery-query-builder"></div>
         <button id="applyFilter">Apply Filter</button>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
         <h2>User Data</h2>
         <table id="data-table">
             <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Birthday</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
-                </tr>
             </thead>
-            <tbody>
-                
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
-    
+
 </div>

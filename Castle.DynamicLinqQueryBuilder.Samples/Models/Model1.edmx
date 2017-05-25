@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="demoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="040dsnContrat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="periodeDsn" Type="nvarchar" MaxLength="6" />
+          <Property Name="ownerId" Type="nvarchar" MaxLength="36" />
+          <Property Name="005declarationid" Type="nvarchar" MaxLength="36" />
+          <Property Name="030dsnSalarieid" Type="nvarchar" MaxLength="36" />
+          <Property Name="40001ContratDateDebut" Type="date" />
+          <Property Name="40002ContratStatutConventionnel" Type="nvarchar" MaxLength="2" />
+          <Property Name="40003ContratStatutRC" Type="nvarchar" MaxLength="2" />
+          <Property Name="40004ContratPcsEse" Type="nvarchar" MaxLength="4" />
+          <Property Name="40005ContratComplementPcsEse" Type="nvarchar" MaxLength="6" />
+          <Property Name="40006ContratLibelleEmploi" Type="nvarchar" MaxLength="120" />
+          <Property Name="40007ContratNature" Type="nvarchar" MaxLength="2" />
+          <Property Name="40008ContratDispositifPolitique" Type="nvarchar" MaxLength="2" />
+          <Property Name="40009ContratNumero" Type="nvarchar" MaxLength="20" />
+          <Property Name="40010ContratDateFinPrevisionnelle" Type="date" />
+          <Property Name="40011ContratUniteMesure" Type="nvarchar" MaxLength="2" />
+          <Property Name="40012ContratQuotiteCategorie" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="40013ContratQuotite" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="40014ContratModaliteTemps" Type="nvarchar" MaxLength="2" />
+          <Property Name="40016ContratComplementBase" Type="nvarchar" MaxLength="2" />
+          <Property Name="40017ContratCcn" Type="nvarchar" MaxLength="4" />
+          <Property Name="40018ContratRegimeMaladie" Type="nvarchar" MaxLength="3" />
+          <Property Name="40019ContratLieutravail" Type="nvarchar" MaxLength="15" />
+          <Property Name="40020ContratRegimeVieillesse" Type="nvarchar" MaxLength="3" />
+          <Property Name="40021ContratMotifRecours" Type="nvarchar" MaxLength="2" />
+          <Property Name="40022ContratCodeCaisseCongesPayes" Type="nvarchar" MaxLength="20" />
+          <Property Name="40023ContratTauxFraisProfessionnels" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="40024ContratTravailleurEtranger" Type="nvarchar" MaxLength="2" />
+          <Property Name="40025ContratMotifExclusionDSN" Type="nvarchar" MaxLength="2" />
+          <Property Name="40026ContratStatusEmploi" Type="nvarchar" MaxLength="2" />
+          <Property Name="40027ContratCodeAffectationAC" Type="nvarchar" MaxLength="6" />
+          <Property Name="40028ContratNumeroInterne" Type="nvarchar" MaxLength="12" />
+          <Property Name="40029ContratTypeGestionAC" Type="nvarchar" MaxLength="2" />
+          <Property Name="40030ContratDateAdhesion" Type="date" />
+          <Property Name="40031ContratDateDenonciation" Type="date" />
+          <Property Name="40032ContratDateConventionGestion" Type="date" />
+          <Property Name="40033ContratNumeroConventionGestion" Type="nvarchar" MaxLength="10" />
+          <Property Name="40035ContratCodeGestionnaireRisque" Type="nvarchar" MaxLength="3" />
+          <Property Name="40036ContratCodeEmploisMultiples" Type="nvarchar" MaxLength="2" />
+          <Property Name="40037ContratCodeEmployeursMultiples" Type="nvarchar" MaxLength="2" />
+          <Property Name="40038ContratCodeMetier" Type="nvarchar" MaxLength="5" />
+          <Property Name="40039ContratCodeRegimeRisqueAccidentTravail" Type="nvarchar" MaxLength="3" />
+          <Property Name="40040ContratCodeRisqueAccidentTravail" Type="nvarchar" MaxLength="6" />
+          <Property Name="40041ContratPositionnementConventionCollective" Type="nvarchar" MaxLength="100" />
+          <Property Name="40042ContratCodeStatutCategorielAPECITA" Type="nvarchar" MaxLength="2" />
+          <Property Name="40043ContratTauxAccidentTravail" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="40044ContratSalarieTempsPartielCotisantTempsPlein" Type="nvarchar" MaxLength="2" />
+          <Property Name="40045ContratRemunerationPourboire" Type="nvarchar" MaxLength="2" />
+          <Property Name="40046ContratSiretEtablissementUtilisateur" Type="nvarchar" MaxLength="15" />
+          <Property Name="40047ContratNumeroCertificationSociale" Type="nvarchar" MaxLength="100" />
+          <Property Name="40048ContratNumeroLabel" Type="nvarchar" MaxLength="100" />
+          <Property Name="40049ContratNumeroLicenceEntrepreneurSpectacle" Type="nvarchar" MaxLength="100" />
+          <Property Name="40050ContratNumeroObjetSpectacle" Type="nvarchar" MaxLength="12" />
+          <Property Name="40051ContratStatutOrganisateurSpectacle" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RecordIds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Block" Type="int" Nullable="false" />
+          <Property Name="Uuid" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="FileId" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="CreatedOwner" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime2" Precision="7" />
+          <Property Name="UpdatedOwner" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="demoModelStoreContainer">
+          <EntitySet Name="040dsnContrat" EntityType="Self.040dsnContrat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecordIds" EntityType="Self.RecordIds" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="demoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RecordId">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Block" Type="Int32" Nullable="false" />
+          <Property Name="Uuid" Type="String" MaxLength="36" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileId" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="CreatedOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="7" />
+          <Property Name="UpdatedOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="demoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RecordIds" EntityType="Self.RecordId" />
+          <EntitySet Name="C040dsnContrat" EntityType="demoModel.C040dsnContrat" />
+        </EntityContainer>
+        <EntityType Name="C040dsnContrat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="periodeDsn" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="ownerId" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="C005declarationid" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="C030dsnSalarieid" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="C40001ContratDateDebut" Type="DateTime" Precision="0" />
+          <Property Name="C40002ContratStatutConventionnel" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40003ContratStatutRC" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40004ContratPcsEse" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="C40005ContratComplementPcsEse" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="C40006ContratLibelleEmploi" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="C40007ContratNature" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40008ContratDispositifPolitique" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40009ContratNumero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C40010ContratDateFinPrevisionnelle" Type="DateTime" Precision="0" />
+          <Property Name="C40011ContratUniteMesure" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40012ContratQuotiteCategorie" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C40013ContratQuotite" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C40014ContratModaliteTemps" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40016ContratComplementBase" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40017ContratCcn" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="C40018ContratRegimeMaladie" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C40019ContratLieutravail" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="C40020ContratRegimeVieillesse" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C40021ContratMotifRecours" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40022ContratCodeCaisseCongesPayes" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C40023ContratTauxFraisProfessionnels" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C40024ContratTravailleurEtranger" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40025ContratMotifExclusionDSN" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40026ContratStatusEmploi" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40027ContratCodeAffectationAC" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="C40028ContratNumeroInterne" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="C40029ContratTypeGestionAC" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40030ContratDateAdhesion" Type="DateTime" Precision="0" />
+          <Property Name="C40031ContratDateDenonciation" Type="DateTime" Precision="0" />
+          <Property Name="C40032ContratDateConventionGestion" Type="DateTime" Precision="0" />
+          <Property Name="C40033ContratNumeroConventionGestion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C40035ContratCodeGestionnaireRisque" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C40036ContratCodeEmploisMultiples" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40037ContratCodeEmployeursMultiples" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40038ContratCodeMetier" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="C40039ContratCodeRegimeRisqueAccidentTravail" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="C40040ContratCodeRisqueAccidentTravail" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="C40041ContratPositionnementConventionCollective" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C40042ContratCodeStatutCategorielAPECITA" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40043ContratTauxAccidentTravail" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C40044ContratSalarieTempsPartielCotisantTempsPlein" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40045ContratRemunerationPourboire" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="C40046ContratSiretEtablissementUtilisateur" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="C40047ContratNumeroCertificationSociale" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C40048ContratNumeroLabel" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C40049ContratNumeroLicenceEntrepreneurSpectacle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C40050ContratNumeroObjetSpectacle" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="C40051ContratStatutOrganisateurSpectacle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="demoModelStoreContainer" CdmEntityContainer="demoEntities">
+          <EntitySetMapping Name="RecordIds">
+            <EntityTypeMapping TypeName="demoModel.RecordId">
+              <MappingFragment StoreEntitySet="RecordIds">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Uuid" ColumnName="Uuid" />
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedOwner" ColumnName="CreatedOwner" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedOwner" ColumnName="UpdatedOwner" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C040dsnContrat">
+            <EntityTypeMapping TypeName="demoModel.C040dsnContrat">
+              <MappingFragment StoreEntitySet="040dsnContrat">
+                <ScalarProperty Name="C40051ContratStatutOrganisateurSpectacle" ColumnName="40051ContratStatutOrganisateurSpectacle" />
+                <ScalarProperty Name="C40050ContratNumeroObjetSpectacle" ColumnName="40050ContratNumeroObjetSpectacle" />
+                <ScalarProperty Name="C40049ContratNumeroLicenceEntrepreneurSpectacle" ColumnName="40049ContratNumeroLicenceEntrepreneurSpectacle" />
+                <ScalarProperty Name="C40048ContratNumeroLabel" ColumnName="40048ContratNumeroLabel" />
+                <ScalarProperty Name="C40047ContratNumeroCertificationSociale" ColumnName="40047ContratNumeroCertificationSociale" />
+                <ScalarProperty Name="C40046ContratSiretEtablissementUtilisateur" ColumnName="40046ContratSiretEtablissementUtilisateur" />
+                <ScalarProperty Name="C40045ContratRemunerationPourboire" ColumnName="40045ContratRemunerationPourboire" />
+                <ScalarProperty Name="C40044ContratSalarieTempsPartielCotisantTempsPlein" ColumnName="40044ContratSalarieTempsPartielCotisantTempsPlein" />
+                <ScalarProperty Name="C40043ContratTauxAccidentTravail" ColumnName="40043ContratTauxAccidentTravail" />
+                <ScalarProperty Name="C40042ContratCodeStatutCategorielAPECITA" ColumnName="40042ContratCodeStatutCategorielAPECITA" />
+                <ScalarProperty Name="C40041ContratPositionnementConventionCollective" ColumnName="40041ContratPositionnementConventionCollective" />
+                <ScalarProperty Name="C40040ContratCodeRisqueAccidentTravail" ColumnName="40040ContratCodeRisqueAccidentTravail" />
+                <ScalarProperty Name="C40039ContratCodeRegimeRisqueAccidentTravail" ColumnName="40039ContratCodeRegimeRisqueAccidentTravail" />
+                <ScalarProperty Name="C40038ContratCodeMetier" ColumnName="40038ContratCodeMetier" />
+                <ScalarProperty Name="C40037ContratCodeEmployeursMultiples" ColumnName="40037ContratCodeEmployeursMultiples" />
+                <ScalarProperty Name="C40036ContratCodeEmploisMultiples" ColumnName="40036ContratCodeEmploisMultiples" />
+                <ScalarProperty Name="C40035ContratCodeGestionnaireRisque" ColumnName="40035ContratCodeGestionnaireRisque" />
+                <ScalarProperty Name="C40033ContratNumeroConventionGestion" ColumnName="40033ContratNumeroConventionGestion" />
+                <ScalarProperty Name="C40032ContratDateConventionGestion" ColumnName="40032ContratDateConventionGestion" />
+                <ScalarProperty Name="C40031ContratDateDenonciation" ColumnName="40031ContratDateDenonciation" />
+                <ScalarProperty Name="C40030ContratDateAdhesion" ColumnName="40030ContratDateAdhesion" />
+                <ScalarProperty Name="C40029ContratTypeGestionAC" ColumnName="40029ContratTypeGestionAC" />
+                <ScalarProperty Name="C40028ContratNumeroInterne" ColumnName="40028ContratNumeroInterne" />
+                <ScalarProperty Name="C40027ContratCodeAffectationAC" ColumnName="40027ContratCodeAffectationAC" />
+                <ScalarProperty Name="C40026ContratStatusEmploi" ColumnName="40026ContratStatusEmploi" />
+                <ScalarProperty Name="C40025ContratMotifExclusionDSN" ColumnName="40025ContratMotifExclusionDSN" />
+                <ScalarProperty Name="C40024ContratTravailleurEtranger" ColumnName="40024ContratTravailleurEtranger" />
+                <ScalarProperty Name="C40023ContratTauxFraisProfessionnels" ColumnName="40023ContratTauxFraisProfessionnels" />
+                <ScalarProperty Name="C40022ContratCodeCaisseCongesPayes" ColumnName="40022ContratCodeCaisseCongesPayes" />
+                <ScalarProperty Name="C40021ContratMotifRecours" ColumnName="40021ContratMotifRecours" />
+                <ScalarProperty Name="C40020ContratRegimeVieillesse" ColumnName="40020ContratRegimeVieillesse" />
+                <ScalarProperty Name="C40019ContratLieutravail" ColumnName="40019ContratLieutravail" />
+                <ScalarProperty Name="C40018ContratRegimeMaladie" ColumnName="40018ContratRegimeMaladie" />
+                <ScalarProperty Name="C40017ContratCcn" ColumnName="40017ContratCcn" />
+                <ScalarProperty Name="C40016ContratComplementBase" ColumnName="40016ContratComplementBase" />
+                <ScalarProperty Name="C40014ContratModaliteTemps" ColumnName="40014ContratModaliteTemps" />
+                <ScalarProperty Name="C40013ContratQuotite" ColumnName="40013ContratQuotite" />
+                <ScalarProperty Name="C40012ContratQuotiteCategorie" ColumnName="40012ContratQuotiteCategorie" />
+                <ScalarProperty Name="C40011ContratUniteMesure" ColumnName="40011ContratUniteMesure" />
+                <ScalarProperty Name="C40010ContratDateFinPrevisionnelle" ColumnName="40010ContratDateFinPrevisionnelle" />
+                <ScalarProperty Name="C40009ContratNumero" ColumnName="40009ContratNumero" />
+                <ScalarProperty Name="C40008ContratDispositifPolitique" ColumnName="40008ContratDispositifPolitique" />
+                <ScalarProperty Name="C40007ContratNature" ColumnName="40007ContratNature" />
+                <ScalarProperty Name="C40006ContratLibelleEmploi" ColumnName="40006ContratLibelleEmploi" />
+                <ScalarProperty Name="C40005ContratComplementPcsEse" ColumnName="40005ContratComplementPcsEse" />
+                <ScalarProperty Name="C40004ContratPcsEse" ColumnName="40004ContratPcsEse" />
+                <ScalarProperty Name="C40003ContratStatutRC" ColumnName="40003ContratStatutRC" />
+                <ScalarProperty Name="C40002ContratStatutConventionnel" ColumnName="40002ContratStatutConventionnel" />
+                <ScalarProperty Name="C40001ContratDateDebut" ColumnName="40001ContratDateDebut" />
+                <ScalarProperty Name="C030dsnSalarieid" ColumnName="030dsnSalarieid" />
+                <ScalarProperty Name="C005declarationid" ColumnName="005declarationid" />
+                <ScalarProperty Name="ownerId" ColumnName="ownerId" />
+                <ScalarProperty Name="periodeDsn" ColumnName="periodeDsn" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
